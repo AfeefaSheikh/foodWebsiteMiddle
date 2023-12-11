@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface MailLinkDetailsRepo extends JpaRepository<MailLinkDetails,Long> {
     Optional<MailLinkDetails> findByUserIdAndUuid(Long userId, String uuid);
+
+    Optional<MailLinkDetails> findByUuid(String token);
 }

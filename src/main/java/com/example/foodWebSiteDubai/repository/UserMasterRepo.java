@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface UserMasterRepo extends JpaRepository<UserMaster,Long> {
     Optional<UserMaster>  findByEmailId(String emailId);
+
+    Optional<UserMaster> findByEmailIdAndUserName(String emailId, String userName);
 }

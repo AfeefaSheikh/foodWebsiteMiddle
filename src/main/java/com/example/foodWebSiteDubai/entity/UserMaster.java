@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 //import org.hibernate.annotations.GeneratedColumn;
 
 @Entity
@@ -28,9 +29,14 @@ public class UserMaster {
     private String password;
     @Column(name = "Status")
     private String  status;
+    @Column(name = "UserName")
+    private String userName;
 
+    @OneToMany
+    @JoinColumn(name = "UserId" , referencedColumnName = "UserId")
+    private List<AddressMaster> addressMasters;
 
-
-
-
+    @OneToOne
+    @JoinColumn(name = "UserId")
+    private UserRole userRoleEntity;
 }
